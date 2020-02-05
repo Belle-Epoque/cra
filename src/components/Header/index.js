@@ -1,5 +1,21 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
+
 import logo from "../../logo.svg";
+
+const Nav = () => (
+  <nav>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+    </ul>
+  </nav>
+);
 
 const Header = () => (
   <header className="App-header">
@@ -15,6 +31,7 @@ const Header = () => (
     >
       Learn React
     </a>
+    <Nav />
   </header>
 );
 
