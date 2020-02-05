@@ -6,6 +6,7 @@ import { withRouter } from "./hoc";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Hooks from "./pages/Hooks";
 
 import "./App.css";
 
@@ -14,6 +15,9 @@ const Main = () => (
     <Switch>
       <Route exact path="/about">
         <About />
+      </Route>
+      <Route exact path="/hooks">
+        <Hooks />
       </Route>
       <Route exact path="/">
         <Home />
