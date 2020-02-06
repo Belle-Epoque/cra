@@ -1,14 +1,12 @@
-import { withStateHandlers } from "recompose";
+import { compose, withState, withHandlers } from "recompose";
 
 import Hoc from "./design";
 
-const withCounter = withStateHandlers(
-  { count: 0 },
-  {
-    setCountOnClick: ({ count }) => () => ({
-      count: count + 1
-    })
-  }
+const withCounter = compose(
+  withState("count", "setCount", 0),
+  withHandlers({
+    setCountOnClick: ({ setCount, count }) => () => setCount(count + 1)
+  })
 );
 
 export default withCounter(Hoc);

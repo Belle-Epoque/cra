@@ -5,7 +5,7 @@ import { withRouter } from "./hoc";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Class from "./pages/Class";
 import Hooks from "./pages/Hooks";
 import Hoc from "./pages/Hoc";
 
@@ -14,8 +14,8 @@ import "./App.css";
 const Main = () => (
   <section>
     <Switch>
-      <Route exact path="/about">
-        <About />
+      <Route exact path="/class">
+        <Class />
       </Route>
       <Route exact path="/hooks">
         <Hooks />
