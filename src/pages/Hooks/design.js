@@ -22,7 +22,10 @@ const Hooks = ({
         movieInfo.map((movie, index) => (
           <div key={index} style={{ width: '33%' }}>
             <h5>{movie.title}</h5>
-            <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} />
+            <img
+              src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+              alt="movie poster"
+            />
           </div>
         ))}
     </div>
