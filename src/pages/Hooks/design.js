@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { MovieWrapper, MovieCard } from './styles';
+
 const Hooks = ({
   count,
   setCountOnClick,
@@ -16,19 +18,18 @@ const Hooks = ({
       Rechercher
     </button>
     <br />
-    {/*     Add styled component ? */}
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <MovieWrapper>
       {movieInfo &&
         movieInfo.map((movie, index) => (
-          <div key={index} style={{ width: '33%' }}>
+          <MovieCard key={index}>
             <h5>{movie.title}</h5>
             <img
-              src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt="movie poster"
             />
-          </div>
+          </MovieCard>
         ))}
-    </div>
+    </MovieWrapper>
   </Fragment>
 );
 

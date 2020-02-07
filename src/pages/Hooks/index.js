@@ -9,6 +9,10 @@ const HooksWrapper = () => {
   const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
+    console.log('componentdidmount');
+  }, []);
+
+  useEffect(() => {
     if (query && isSearch) {
       const getQueryUrl = () =>
         `https://api.themoviedb.org/3/search/movie?api_key=c1ac741d5dd740f9861e794c5363b0c2&query=${query}`;
