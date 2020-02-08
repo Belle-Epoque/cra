@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react';
-import { MovieWrapper, MovieCard } from './styles';
+import React, { Fragment } from "react";
+import { MovieWrapper, MovieCard } from "./styles";
+
+// @Todo: manage image src error (if image doesn't exist replace it by a placeholder).
 
 const Hooks = ({
   count,

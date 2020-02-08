@@ -1,43 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import Hooks from './design';
+import React, { useState, useEffect } from "react";
+import { compose } from "../../helpers";
+import { fetchMovies } from "../../api/movie";
+import Hooks from "./design";
 
-const HooksWrapper = () => {
+const withCounter = WrappedComponent => props => {
   const [count, setCount] = useState(0);
+  const setCountOnClick = () => setCount(count + 1);
+  console.log("withCounter hoc");
+  return (
+    <WrappedComponent
+      {...props}
+      count={count}
+      setCountOnClick={setCountOnClick}
+    />
+  );
+};
 
-  const [query, setQuery] = useState('');
+const getMovies = async ({ query, setData, setIsSearch }) => {
+  const { data = [], isError = false, errorMessage } = await fetchMovies(query);
+
+  if (isError) {
+    console.log("Error during fetch movie", errorMessage);
+    return;
+  }
+
+  setData(data);
+  setIsSearch(false);
+};
+
+const withApiMovie = WrappedComponent => props => {
+  const [query, setQuery] = useState("");
+  const [lastSubmittedQuery, setLastSubmittedQuery] = useState("");
   const [data, setData] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
-    console.log('componentdidmount');
+    console.log("like componentDidMount");
   }, []);
 
   useEffect(() => {
-    if (query && isSearch) {
-      const getQueryUrl = () =>
-        `https://api.themoviedb.org/3/search/movie?api_key=c1ac741d5dd740f9861e794c5363b0c2&query=${query}`;
-      const fetchData = async () => {
-        try {
-          const response = await fetch(getQueryUrl());
-          const { results } = await response.json();
-          setData(results);
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setIsSearch(false);
-        }
-      };
-      fetchData();
+    if (query && isSearch && lastSubmittedQuery !== query) {
+      setLastSubmittedQuery(query);
+      getMovies({ query, setData, setIsSearch });
     }
-  }, [isSearch, query]);
+  }, [isSearch, lastSubmittedQuery, query]);
 
-  const setCountOnClick = () => setCount(count + 1);
-  const setQueryOnChange = event => setQuery(event.target.value);
+  const setQueryOnChange = event => setQuery(event.target.value); // @Todo: debounce this change.
   const setSearchOnClick = () => setIsSearch(true);
+
+  console.log("withApiMovie hoc");
   return (
-    <Hooks
-      count={count}
-      setCountOnClick={setCountOnClick}
+    <WrappedComponent
+      {...props}
       movieInfo={data}
       isSearch={isSearch}
       setSearchOnClick={setSearchOnClick}
@@ -46,4 +60,4 @@ const HooksWrapper = () => {
   );
 };
 
-export default HooksWrapper;
+export default compose(withCounter, withApiMovie)(Hooks);
