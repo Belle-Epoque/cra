@@ -1,7 +1,5 @@
-import React, { Fragment } from "react";
-import { MovieWrapper, MovieCard } from "./styles";
-
-// @Todo: manage image src error (if image doesn't exist replace it by a placeholder).
+import React, { Fragment } from 'react';
+import { MovieWrapper, MovieCard } from './styles';
 
 const Hooks = ({
   count,
@@ -26,7 +24,11 @@ const Hooks = ({
           <MovieCard key={index}>
             <h5>{movie.title}</h5>
             <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : 'https://via.placeholder.com/500'
+              }
               alt="movie poster"
             />
           </MovieCard>
