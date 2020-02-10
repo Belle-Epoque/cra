@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 const VAL_NAME_1 = "val1";
 const VAL_NAME_2 = "val2";
@@ -14,6 +15,40 @@ const OPERATOR = [
   OPERATOR_MULTIPLICATOR,
   OPERATOR_DIVIDE
 ];
+
+const CalculatorWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const CalculatorInput = styled.input`
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  color: black;
+  font-size: 16px;
+  &:focus {
+    border: 1px solid blue;
+  }
+`;
+
+const CalculatorSelected = styled.select`
+  background: white;
+  color: black;
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+  font-size: 16px;
+`;
+
+const CalculatorButton = styled.button`
+  width: 80px;
+  height: 40px;
+  background: ${({ color }) => (color ? color : "white")};
+  color: white;
+  border: 1px solid black;
+`;
 
 const getValue = ({ key, value }) => {
   switch (key) {
@@ -57,32 +92,33 @@ class Calculator extends Component {
     const { val1, val2, res } = this.state;
     return (
       <>
-        <input
-          type="number"
-          value={val1}
-          name={VAL_NAME_1}
-          onChange={this.handleChange}
-        />
-        <br />
-        <select name="operator" onChange={this.handleChange}>
-          {OPERATOR.map((op, index) => (
-            <option key={index} value={op}>
-              {op}
-            </option>
-          ))}
-        </select>
-        <br />
-        <input
-          type="number"
-          value={val2}
-          name={VAL_NAME_2}
-          onChange={this.handleChange}
-        />
-        <br />
-        <button type="submit" onClick={this.setRes}>
-          Result
-        </button>
-        <br />
+        <CalculatorWrapper>
+          <CalculatorInput
+            type="number"
+            value={val1}
+            name={VAL_NAME_1}
+            onChange={this.handleChange}
+          />
+          <br />
+          <CalculatorSelected name="operator" onChange={this.handleChange}>
+            {OPERATOR.map((op, index) => (
+              <option key={index} value={op}>
+                {op}
+              </option>
+            ))}
+          </CalculatorSelected>
+          <br />
+          <CalculatorInput
+            type="number"
+            value={val2}
+            name={VAL_NAME_2}
+            onChange={this.handleChange}
+          />
+          <br />
+          <CalculatorButton color="#516cf0" type="submit" onClick={this.setRes}>
+            Result
+          </CalculatorButton>
+        </CalculatorWrapper>
         <p>Result : {res}</p>
       </>
     );

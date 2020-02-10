@@ -1,7 +1,6 @@
-import React from 'react';
-
-import Class from './design';
-import { fetchMovies } from '../../api/movie';
+import React from "react";
+import Class from "./design";
+import { fetchMovies } from "../../api/movie";
 
 // HOC example with Counter logic.
 const withCounter = WrappedComponent => {
@@ -38,10 +37,10 @@ const withApiFetch = WrappedComponent => {
     constructor(props) {
       super(props);
       this.state = {
-        query: '',
+        query: "",
         data: [],
         isSearch: false,
-        lastSubmittedQuery: ''
+        lastSubmittedQuery: ""
       };
     }
 
@@ -51,7 +50,7 @@ const withApiFetch = WrappedComponent => {
       );
 
       if (isError) {
-        console.log('Error during fetch movie', errorMessage);
+        console.log("Error during fetch movie", errorMessage);
         return;
       }
 
