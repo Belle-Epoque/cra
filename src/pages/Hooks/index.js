@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { compose } from "../../helpers";
-import { fetchMovies } from "../../api/movie";
-import Hooks from "./design";
+import React, { useState, useEffect } from 'react';
+import { compose } from '../../helpers';
+import { fetchMovies } from '../../api/movie';
+import Hooks from './design';
 
 const withCounter = WrappedComponent => props => {
   const [count, setCount] = useState(0);
   const setCountOnClick = () => setCount(count + 1);
-  console.log("withCounter hoc");
+  console.log('withCounter hoc');
   return (
     <WrappedComponent
       {...props}
@@ -20,7 +20,7 @@ const getMovies = async ({ query, setData, setIsSearch }) => {
   const { data = [], isError = false, errorMessage } = await fetchMovies(query);
 
   if (isError) {
-    console.log("Error during fetch movie", errorMessage);
+    console.log('Error during fetch movie', errorMessage);
     return;
   }
 
@@ -29,13 +29,13 @@ const getMovies = async ({ query, setData, setIsSearch }) => {
 };
 
 const withApiMovie = WrappedComponent => props => {
-  const [query, setQuery] = useState("");
-  const [lastSubmittedQuery, setLastSubmittedQuery] = useState("");
+  const [query, setQuery] = useState('');
+  const [lastSubmittedQuery, setLastSubmittedQuery] = useState('');
   const [data, setData] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
-    console.log("like componentDidMount");
+    console.log('like componentDidMount');
   }, []);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const withApiMovie = WrappedComponent => props => {
   const setQueryOnChange = event => setQuery(event.target.value); // @Todo: debounce this change.
   const setSearchOnClick = () => setIsSearch(true);
 
-  console.log("withApiMovie hoc");
+  console.log('withApiMovie hoc');
   return (
     <WrappedComponent
       {...props}

@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Class from "./design";
+import Class from './design';
+import { fetchMovies } from '../../api/movie';
 
 // HOC example with Counter logic.
 const withCounter = WrappedComponent => {
@@ -32,4 +33,57 @@ const withCounter = WrappedComponent => {
   };
 };
 
-export default withCounter(Class);
+const withApiFetch = WrappedComponent => {
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        query: '',
+        data: [],
+        isSearch: false,
+        lastSubmittedQuery: ''
+      };
+    }
+
+    getMovies = async ({ query }) => {
+      const { data = [], isError = false, errorMessage } = await fetchMovies(
+        query
+      );
+
+      if (isError) {
+        console.log('Error during fetch movie', errorMessage);
+        return;
+      }
+
+      this.setState({ data, isSearch: false });
+    };
+
+    setSearchOnClick = () => {
+      const { query, lastSubmittedQuery } = this.state;
+      console.log(lastSubmittedQuery);
+      if (query && lastSubmittedQuery !== query) {
+        this.setState({ isSearch: true, lastSubmittedQuery: query });
+        this.getMovies({ query });
+      }
+    };
+
+    setQueryOnChange = event => {
+      this.setState({ query: event.target.value });
+    };
+
+    render() {
+      const { data, isSearch } = this.state;
+      return (
+        <WrappedComponent
+          {...this.props}
+          movieInfo={data}
+          isSearch={isSearch}
+          setSearchOnClick={this.setSearchOnClick}
+          setQueryOnChange={this.setQueryOnChange}
+        />
+      );
+    }
+  };
+};
+
+export default withCounter(withApiFetch(Class));
