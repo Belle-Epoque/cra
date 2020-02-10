@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
+import Calculator from "../../components/Calculator/";
 
-const Home = () => <Fragment>Home here</Fragment>;
+const Home = () => <Calculator />;
 
 export default Home;
