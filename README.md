@@ -12,12 +12,12 @@
 
 - [Documentaton movie API](https://developers.themoviedb.org/3/getting-started)
 
-- [Blog Dan Abramov](https://overreacted.io/)
-
 - [Comparaison Hooks vs Class](https://wattenberger.com/blog/react-hooks)
 
 - [Documentation LodashFP](https://github.com/lodash/lodash/wiki/FP-Guide)
 
-- [Recrutement Belle Epoque](https://www.welcometothejungle.com/fr/companies/agence-belle-epoque)
+- [Medium d'Eric Elliott](https://medium.com/@_ericelliott)
 
-* [Texte](lien)
+- [Blog d'Addy Osmani](https://addyosmani.com/blog/)
+
+- [Recrutement Belle Epoque](https://www.welcometothejungle.com/fr/companies/agence-belle-epoque)
