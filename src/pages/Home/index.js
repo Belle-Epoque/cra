@@ -1,6 +1,6 @@
 import React from "react";
-import Calculator from "../../components/Calculator/";
+import TopMovies from "../../components/TopMovies";
 
-const Home = () => <Calculator />;
+const Home = () => <TopMovies query="matrix" size={3} />;
 
 export default Home;
