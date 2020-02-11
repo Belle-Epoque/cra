@@ -14,6 +14,10 @@
 
 - [Documentaton movie API](https://developers.themoviedb.org/3/getting-started)
 
+- [Cheat sheet Typescript](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet)
+
+- [Cheat sheet React](https://dev.to/codeartistryio/the-react-cheatsheet-for-2020-real-world-examples-4hgg)
+
 - [API Météo](https://openweathermap.org/api)
 
 - [API Rick & Morty](https://rickandmortyapi.com/)
