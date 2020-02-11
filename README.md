@@ -28,4 +28,6 @@
 
 - [Blog d'Addy Osmani](https://addyosmani.com/blog/)
 
-- [Recrutement Belle Epoque](https://www.welcometothejungle.com/fr/companies/agence-belle-epoque)
+* [Recompose Doc](https://github.com/acdlite/recompose/blob/master/docs/API.md)
+
+* [Recrutement Belle Epoque](https://www.welcometothejungle.com/fr/companies/agence-belle-epoque)
