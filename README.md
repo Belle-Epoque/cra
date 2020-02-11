@@ -22,6 +22,8 @@
 
 - [Medium d'Eric Elliott](https://medium.com/@_ericelliott)
 
+- [Liste des custom hooks](https://github.com/rehooks/awesome-react-hooks)
+
 - [Utilisation du UseEffect()](https://overreacted.io/a-complete-guide-to-useeffect/)
 
 - [Blog d'Addy Osmani](https://addyosmani.com/blog/)
