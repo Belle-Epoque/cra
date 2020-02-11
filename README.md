@@ -22,6 +22,8 @@
 
 - [Medium d'Eric Elliott](https://medium.com/@_ericelliott)
 
+- [Utilisation du UseEffect()](https://overreacted.io/a-complete-guide-to-useeffect/)
+
 - [Blog d'Addy Osmani](https://addyosmani.com/blog/)
 
 - [Recrutement Belle Epoque](https://www.welcometothejungle.com/fr/companies/agence-belle-epoque)
