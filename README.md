@@ -16,6 +16,10 @@
 
 - [API Météo](https://openweathermap.org/api)
 
+- [API Rick & Morty](https://rickandmortyapi.com/)
+
+- [API Marvel](https://developer.marvel.com/documentation/getting_started)
+
 - [Comparaison Hooks vs Class](https://wattenberger.com/blog/react-hooks)
 
 - [Documentation LodashFP](https://github.com/lodash/lodash/wiki/FP-Guide)
