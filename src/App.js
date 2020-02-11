@@ -10,10 +10,14 @@ import Hooks from "./pages/Hooks";
 import Hoc from "./pages/Hoc";
 
 import "./App.css";
+import MovieDetailed from "./pages/MovieDetailled";
 
 const Main = () => (
   <section>
     <Switch>
+      <Route exatch path="/movie/:movieid">
+        <MovieDetailed />
+      </Route>
       <Route exact path="/class">
         <Class />
       </Route>

@@ -1,4 +1,5 @@
 const API_MOVIE_BASE_URL = "https://api.themoviedb.org/3/search/movie";
+const API_MOVIE_DETAILED_BASE_URL = "https://api.themoviedb.org/3/movie";
 const API_MOVIE_API_KEY =
   process.env.API_MOVIE_API_KEY || "c1ac741d5dd740f9861e794c5363b0c2";
 
@@ -23,6 +24,25 @@ export const fetchMovies = async (query = "") => {
   } catch (error) {
     return {
       ...res,
+      errorMessage: error.message || "Undefined error",
+      error,
+      isError: true
+    };
+  }
+};
+
+const getDetailedUrl = (id: "") =>
+  `${API_MOVIE_DETAILED_BASE_URL}/${id}?api_key=${API_MOVIE_API_KEY}`;
+
+export const fetchMovieDetailed = async (id: "") => {
+  try {
+    const response = await fetch(getDetailedUrl(id));
+
+    const data = await response.json();
+
+    return { data };
+  } catch (error) {
+    return {
       errorMessage: error.message || "Undefined error",
       error,
       isError: true

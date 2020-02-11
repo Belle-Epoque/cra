@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MovieWrapper = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const MovieWrapper = styled.div`
 export const MovieCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 15%;
   text-align: center;
   padding: 10px;
   img {
